@@ -52,10 +52,15 @@ export default {
       },
       onInteraction: (interaction) => {
         console.log("Interaction event:", interaction.name, interaction.value);
+        if (
+          interaction.name == "Viewed Task Completed Page" &&
+          interaction.value?.state === "completed"
+        ) {
+          ctx.finished = true;
+        }
       },
       onFinish: (data) => {
         console.log("Finish event:", data.taskId, data.handoff);
-        ctx.finished = true;
       },
       onClose: (data) => {
         console.log("Close event:", data.reason);
