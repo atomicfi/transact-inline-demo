@@ -1,6 +1,21 @@
 <template>
-  <div style="text-align: center">
-    <div class="transact-container"></div>
+  <div>
+    <div class="main">
+      <h1>Setup your direct deposit</h1>
+      <div class="wrapper">
+        <div class="transact-container"></div>
+        <div class="information">
+          <p>
+            We use <a href="https://www.atomic.financial">Atomic</a> to easily
+            update your direct deposit information.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <div class="btn btn-info">Cancel</div>
+      <div class="btn btn-primary" v-if="this.finished">Continue</div>
+    </div>
   </div>
 </template>
 
@@ -12,18 +27,27 @@ export default {
   props: {
     msg: String,
   },
-
+  data() {
+    return {
+      finished: false,
+    };
+  },
   mounted() {
+    let ctx = this;
     Atomic.transact({
       environmentOverride:
-        "https://feature-inline-support.d3smqbi2kw4zm7.amplifyapp.com/",
+        "https://feature-inline-support.d3smqbi2kw4zm7.amplifyapp.com",
       container: ".transact-container",
       config: {
         inSdk: false,
         demoMode: true,
         tasks: [{ product: "deposit" }],
+        deeplink: {
+          step: "search-company",
+        },
         theme: {
           inline: true,
+          overlayColor: "#FFF",
         },
       },
       onInteraction: (interaction) => {
@@ -31,6 +55,7 @@ export default {
       },
       onFinish: (data) => {
         console.log("Finish event:", data.taskId, data.handoff);
+        ctx.finished = true;
       },
       onClose: (data) => {
         console.log("Close event:", data.reason);
@@ -42,25 +67,78 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+body {
+  background-color: #f7f7fa;
+  text-align: left;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 10px 28px;
+  font-size: 16px;
+  cursor: pointer;
   display: inline-block;
-  margin: 0 10px;
+  border-radius: 5px;
+  margin: 5px;
+  border: 1px solid #0b41c5;
+}
+.btn-info {
+  background-color: #fff;
+  color: #0b41c5;
+}
+.btn-primary {
+  color: #fff;
+  text-align: center;
+  background-color: #0b41c5;
+  font-weight: bold;
+}
+h1,
+h2,
+h3 {
+  text-align: left;
+  color: #0c1f74;
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+h1 {
+  font-size: 25px;
 }
 a {
-  color: #42b983;
+  color: #0b41c5;
 }
-
+.action-buttons {
+  margin-top: 20px;
+  text-align: right;
+  width: 990px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.main {
+  text-align: center;
+  width: 990px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.wrapper {
+  border: 1px solid #d4d4d9;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
 .transact-container {
+  background-color: #fff;
   width: 500px;
-  height: 640px;
-  display: inline-block;
-  color: red;
+  height: 710px;
+  border-right: 1px solid #d4d4d9;
+}
+.information {
+  padding: 0px 20px 0px 20px;
+  margin: 30px;
+  width: 350px;
+  max-height: 80px;
+  background-color: #f7f7fa;
+  text-align: left;
+  border-radius: 20px;
 }
 </style>
