@@ -16,7 +16,7 @@ export default {
   mounted() {
     Atomic.transact({
       environmentOverride:
-        "https://feature-inline-support.d3smqbi2kw4zm7.amplifyapp.com/",
+        "https://feature-inline-support.d3smqbi2kw4zm7.amplifyapp.com",
       container: ".transact-container",
       config: {
         inSdk: false,
