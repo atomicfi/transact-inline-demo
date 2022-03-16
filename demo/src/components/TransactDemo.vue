@@ -1,5 +1,4 @@
 <template>
-  <button type="button" @click="launchTransact">Launch Transact</button>
   <div style="text-align: center">
     <div class="transact-container"></div>
   </div>
@@ -8,36 +7,35 @@
 <script>
 import { Atomic, Product } from "@atomicfi/transact-javascript-inline";
 
-function launchTransact() {
-  console.log("Launch");
-  Atomic.transact({
-    environmentOverride:
-      "https://feature-inline-support.d3smqbi2kw4zm7.amplifyapp.com/",
-    container: ".transact-container",
-    config: {
-      inSdk: false,
-      demoMode: true,
-      tasks: { product: "deposit" },
-      theme: {
-        inline: true,
-      },
-    },
-    onInteraction: (interaction) => {
-      console.log("Interaction event:", interaction.name, interaction.value);
-    },
-    onFinish: (data) => {
-      console.log("Finish event:", data.taskId, data.handoff);
-    },
-    onClose: (data) => {
-      console.log("Close event:", data.reason);
-    },
-  });
-}
-
 export default {
   name: "TransactDemo",
   props: {
     msg: String,
+  },
+
+  mounted() {
+    Atomic.transact({
+      environmentOverride:
+        "https://feature-inline-support.d3smqbi2kw4zm7.amplifyapp.com/",
+      container: ".transact-container",
+      config: {
+        inSdk: false,
+        demoMode: true,
+        tasks: [{ product: "deposit" }],
+        theme: {
+          inline: true,
+        },
+      },
+      onInteraction: (interaction) => {
+        console.log("Interaction event:", interaction.name, interaction.value);
+      },
+      onFinish: (data) => {
+        console.log("Finish event:", data.taskId, data.handoff);
+      },
+      onClose: (data) => {
+        console.log("Close event:", data.reason);
+      },
+    });
   },
 };
 </script>
@@ -63,5 +61,6 @@ a {
   width: 500px;
   height: 640px;
   display: inline-block;
+  color: red;
 }
 </style>
