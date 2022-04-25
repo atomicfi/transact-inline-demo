@@ -44,7 +44,7 @@ export default {
           step: "search-company",
         },
         theme: {
-          inline: true,
+          display: "inline",
           overlayColor: "#FFF",
         },
       },
