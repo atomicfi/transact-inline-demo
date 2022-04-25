@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { Atomic, Product } from "@atomicfi/transact-javascript-inline";
+import { Atomic, Product } from "@atomicfidev/transact-javascript";
 
 export default {
   name: "TransactDemo",

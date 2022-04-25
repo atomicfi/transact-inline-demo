@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@atomicfi/transact-javascript-inline": "github:atomicfi/atomic-transact-javascript#inline-prototype",
+    "@atomicfidev/transact-javascript": "^1.0.5",
     "vue": "^3.2.13"
   },
   "devDependencies": {
