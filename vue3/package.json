@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@atomicfidev/transact-javascript": "^1.0.5",
+    "@atomicfi/transact-javascript": "^1.1.0",
     "vue": "^3.2.13"
   },
   "devDependencies": {
