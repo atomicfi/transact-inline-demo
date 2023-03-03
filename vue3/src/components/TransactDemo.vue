@@ -39,7 +39,7 @@ export default {
       config: {
         inSdk: false,
         demoMode: true,
-        tasks: [{ product: "deposit" }],
+        tasks: [{ product: Product.DEPOSIT }],
         deeplink: {
           step: "search-company",
         },
