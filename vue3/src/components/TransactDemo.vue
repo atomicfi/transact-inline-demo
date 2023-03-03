@@ -36,6 +36,7 @@ export default {
       config: {
         inSdk: false,
         demoMode: true,
+        publicToken: import.meta.env.VITE_PUBLIC_TOKEN,
         tasks: [{ product: Product.DEPOSIT }],
         deeplink: {
           step: "search-company",

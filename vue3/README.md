@@ -8,6 +8,8 @@ This is a demo of Transact running in inline mode in a Vue 3 application.
 npm install
 ```
 
+Copy `.env.sample` into a `.env` file, [create an access token with Atomic's API](https://docs.atomicfi.com/reference/api#access-token__create-access-token), and set the `VITE_PUBLIC_TOKEN` environment variable to the `publicToken` value.
+
 ### Compiles and hot-reloads for development
 
 ```
