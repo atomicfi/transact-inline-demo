@@ -1,4 +1,6 @@
-# demo
+# Vue 3 Demo
+
+This is a demo of Transact running in inline mode in a Vue 3 application.
 
 ## Project setup
 
