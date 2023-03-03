@@ -6,8 +6,9 @@
         <div class="transact-container"></div>
         <div class="information">
           <p>
-            We use <a href="https://www.atomic.financial">Atomic</a> to easily
-            update your direct deposit information.
+            We use
+            <a href="https://www.atomic.financial" target="_blank">Atomic</a> to
+            easily update your direct deposit information.
           </p>
         </div>
       </div>
