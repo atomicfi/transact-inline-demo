@@ -24,9 +24,6 @@ import { Atomic, Product } from "@atomicfi/transact-javascript";
 
 export default {
   name: "TransactDemo",
-  props: {
-    msg: String,
-  },
   data() {
     return {
       finished: false,
