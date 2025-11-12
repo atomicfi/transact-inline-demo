@@ -35,16 +35,23 @@ export default {
     Atomic.transact({
       container: ".transact-container",
       config: {
-        inSdk: false,
-        demoMode: true,
-        publicToken: import.meta.env.VITE_PUBLIC_TOKEN,
-        tasks: [{ product: Product.DEPOSIT }],
+        inSdk: true,
+        publicToken: "test-477b0adc-2c82-4ba7-89c4-853c3dcfb35a",
+        tasks: [
+          {
+            operation: Product.DEPOSIT,
+          },
+        ],
         deeplink: {
-          step: "search-company",
+          step: "login-company",
+          connectorId: "5da2a2372a5c5600081d0052",
+          companyId: "609ada7a98ae06000980e124",
         },
         theme: {
           display: "inline",
-          overlayColor: "#FFF",
+        },
+        customer: {
+          name: "bob",
         },
       },
       onInteraction: (interaction) => {
@@ -61,6 +68,9 @@ export default {
       },
       onClose: (data) => {
         console.log("Close event:", data.reason);
+      },
+      onDataRequest: (data) => {
+        console.log("Data request:", data);
       },
     });
   },

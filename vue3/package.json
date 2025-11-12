@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@atomicfi/transact-javascript": "^1.1.0",
+    "@atomicfi/transact-javascript": "^3.0.6",
     "vue": "^3.2.45"
   },
   "devDependencies": {
