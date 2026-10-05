@@ -1,19 +1,22 @@
 {
-  "name": "vue3",
+  "name": "transact-inline-vue3",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@atomicfi/transact-javascript": "^3.0.6",
-    "vue": "^3.2.45"
+    "@atomicfi/transact-javascript": "^3.2.0",
+    "vue": "^3.5.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.0.0",
-    "vite": "^4.1.0"
+    "@vitejs/plugin-vue": "^6.0.0",
+    "vite": "^8.0.0"
   }
 }
