@@ -2,15 +2,8 @@
   <TransactDemo />
 </template>
 
-<script>
+<script setup>
 import TransactDemo from "./components/TransactDemo.vue";
-
-export default {
-  name: "App",
-  components: {
-    TransactDemo,
-  },
-};
 </script>
 
 <style>
