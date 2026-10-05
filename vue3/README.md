@@ -1,23 +1,24 @@
-# Vue 3 Demo
+# Vue 3 demo
 
-This is a demo of Transact running in inline mode in a Vue 3 application.
+Transact in inline mode inside a Vue 3 app, using `@atomicfi/transact-javascript`.
 
-## Project setup
+## Setup
+
+Node 20.19 or later (`.nvmrc` pins 24).
 
 ```
 npm install
+cp .env.sample .env.local
 ```
 
-Copy `.env.sample` into a `.env` file, [create an access token with Atomic's API](https://docs.atomicfi.com/reference/api#access-token__create-access-token), and set the `VITE_PUBLIC_TOKEN` environment variable to the `publicToken` value.
+[Create an access token](https://docs.atomicfi.com/reference/api#access-token__create-access-token) and put its `publicToken` in `VITE_PUBLIC_TOKEN`. Public tokens expire, so mint a new one per session. For a sandbox token, also set `VITE_TRANSACT_URL=https://transact-sandbox.atomicfi.com`.
 
-### Compiles and hot-reloads for development
+`VITE_COMPANY_ID` is optional. When set, Transact opens on that company's login page instead of search.
+
+## Run
 
 ```
 npm run dev
 ```
 
-### Compiles and minifies for production
-
-```
-npm run build
-```
+`npm run build` writes a production build to `dist/`.
